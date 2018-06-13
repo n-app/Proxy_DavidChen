@@ -36,15 +36,28 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+// handle /listingdescriptioncomponent routes
+app.use('/listingdescriptioncomponent', async (req, res) => {
+  const redirectUrl = new url.URL(req.url, 'http://localhost/');
+  redirectUrl.port = 3001;
+  res.redirect(307, redirectUrl);
+});
 
-// handel /reviewcomponent routes
+// handle /rooms routes
+app.use('/rooms', (req, res) => {
+  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
+  redirectUrl.port = 3001;
+  res.redirect(307, redirectUrl);
+});
+
+// handle /reviewcomponent routes
 app.use('/reviewcomponent', async (req, res) => {
   const redirectUrl = new url.URL(req.url, 'http://localhost/');
   redirectUrl.port = 3003;
   res.redirect(307, redirectUrl);
 });
 
-// handel /reviews routes
+// handle /reviews routes
 app.use('/reviews', (req, res) => {
   const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
   redirectUrl.port = 3003;
