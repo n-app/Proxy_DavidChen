@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const http = require('http');
 const url = require('url');
+const path = require('path');
 
 const app = express();
 
@@ -33,8 +34,9 @@ app.use((req, res, next) => {
 /* eslint-enable consistent-return */
 
 // serve up the pages
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 app.get('/favicon.ico', (req, res) => res.status(204));
+
 
 // handle /listingdescriptioncomponent routes
 app.use('/listingdescriptioncomponent', async (req, res) => {
@@ -64,6 +66,34 @@ app.use('/reviews', (req, res) => {
   res.redirect(307, redirectUrl);
 });
 
+// handle /filterlistingscomponent routes
+app.use('/filterlistingscomponent', async (req, res) => {
+  const redirectUrl = new url.URL(req.url, 'http://localhost/');
+  redirectUrl.port = 3004;
+  res.redirect(307, redirectUrl);
+});
+
+// handle /filterlistings routes
+app.use('/filterlistings', (req, res) => {
+  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
+  redirectUrl.port = 3004;
+  res.redirect(307, redirectUrl);
+});
+
+// handle /filterlistingscomponent routes
+app.use('/bookingservicecomponent', async (req, res) => {
+  const redirectUrl = new url.URL(req.url, 'http://localhost/');
+  redirectUrl.port = 3002;
+  res.redirect(307, redirectUrl);
+});
+
+// handle /filterlistings routes
+app.use('/booking', (req, res) => {
+  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
+  redirectUrl.port = 3002;
+  res.redirect(307, redirectUrl);
+});
+
 // handle error
 app.use((req, res, next) => {
   const error = new Error('Not found');
@@ -86,3 +116,4 @@ app.use((error, req, res, next) => {
 const port = process.env.port || 3000;
 const server = http.createServer(app);
 server.listen(port);
+console.log(`Proxy listening on port ${port}`);

@@ -2,9 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const srcFolder = path.resolve(__dirname, '/client/src/');
+
 module.exports = {
   entry: {
-    reviews: ['babel-polyfill', './client/src/js/index.jsx'],
+    reviews: ['babel-polyfill', path.resolve(srcFolder, '/js/index.jsx')],
   },
   resolve: { extensions: ['.js', '.jsx'] },
   output: {
@@ -42,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/src/index.html',
+      template: path.resolve(srcFolder, '/index.html'),
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
