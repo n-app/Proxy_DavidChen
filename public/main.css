@@ -1,12 +1,26 @@
+.main-page {
+  display: flex;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
 .main-page-padding {
-  padding: 72px;
+
+  /* padding: 72px; */
   clear: both;
+  /* width: 1000px; */
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .floating-booking {
   float: left;
+  margin-left: 50px;
   position: sticky;
-  top: 20px;
-  left: 700px;
-  max-width: 350px;
+  top: 10px;
+  max-width: 300px;
+  /* display: block; */
 }
