@@ -5,25 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Nappbnb</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href=/listingdescriptioncomponent/main.css />
+    <link rel="stylesheet" type="text/css" media="screen" href=main.css />
+    <link rel="stylesheet" type="text/css" media="screen" href=/bookingservicecomponent/booking.css />
     <link rel="stylesheet" type="text/css" media="screen" href=/reviewcomponent/reviews.css />
+    <link rel="stylesheet" type="text/css" media="screen" href=/listingdescriptioncomponent/main.css />
+    <link rel="stylesheet" type="text/css" media="screen" href=/filterlistingscomponent/filterListings.css />
     <meta name="description" content="Proxy server">
   </head>
   <body>
-    <header>
-      <h1>Nappbnb</h1>
-    </header>
-    <nav>
-
-    </nav>
-    <main>
+      <div class="floating-booking">
+          <div id="booking"></div>
+      </div>
+    <div class="main-page-padding">
       <div id="listingDescription"></div>
       <div id="reviews"></div>
-    </main>
-    <footer>
-
-    </footer>
+    </div>
+    <div id="filterListings"></div>
   </body>
   <script src="/listingdescriptioncomponent/main.js"></script>
   <script src="/reviewcomponent/reviews.js"></script>
+  <script src="/bookingservicecomponent/booking.js"></script>
+  <script src="/filterlistingscomponent/filterListings.js"></script>
 </html>

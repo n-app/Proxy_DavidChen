@@ -1,0 +1,12 @@
+.main-page-padding {
+  padding: 72px;
+  clear: both;
+}
+
+.floating-booking {
+  float: left;
+  position: sticky;
+  top: 20px;
+  left: 700px;
+  max-width: 350px;
+}
