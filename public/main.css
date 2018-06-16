@@ -19,3 +19,10 @@ html {
   top: 20px;
   /* display: block; */
 }
+
+@media only screen and (max-width: 744px) {
+  .main-page {
+    flex-direction: column;
+    align-items: center;
+  }
+}
