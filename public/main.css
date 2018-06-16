@@ -1,14 +1,14 @@
 .main-page {
   display: flex;
-  width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+  
   justify-content: center;
 }
 .main-page-padding {
 
   /* padding: 72px; */
-  clear: both;
+  /* clear: both; */
   /* width: 1000px; */
 }
 
@@ -20,7 +20,6 @@ html {
   float: left;
   margin-left: 50px;
   position: sticky;
-  top: 10px;
-  max-width: 300px;
+  top: 20px;
   /* display: block; */
 }

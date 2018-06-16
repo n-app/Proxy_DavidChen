@@ -37,6 +37,19 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+// handle /titlegallerycomponent routes
+app.use('/titlegallerycomponent', async (req, res) => {
+  const redirectUrl = new url.URL(req.url, 'http://localhost/');
+  redirectUrl.port = 3005;
+  res.redirect(307, redirectUrl);
+});
+
+// handle /headerphotos routes
+app.use('/headerphotos', (req, res) => {
+  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
+  redirectUrl.port = 3005;
+  res.redirect(307, redirectUrl);
+});
 
 // handle /listingdescriptioncomponent routes
 app.use('/listingdescriptioncomponent', async (req, res) => {
