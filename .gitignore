@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+dist/
+N-appbnb-description-listing/
+filter-listings-ryan/
+booking-service/
