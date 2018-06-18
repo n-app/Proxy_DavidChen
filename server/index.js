@@ -5,6 +5,18 @@ const http = require('http');
 const url = require('url');
 const path = require('path');
 
+// insert endpoints and ports:
+const titleGalleryUrl = 'http://airbnb-title-galley.us-west-1.elasticbeanstalk.com/';
+// const titleGalleryPort = 3005;
+const listingDescriptionUrl = 'http://nappbnb-env-1.yykbu3dn27.us-east-1.elasticbeanstalk.com/';
+// const listingDescriptionPort = 3001;
+const reviewsUrl = 'http://nappbnbreviews.us-west-1.elasticbeanstalk.com/';
+// const reviewsPort = 3003;
+const filterListingsUrl = 'http://nappfilterlistingryan-env.n93dfz3d6f.us-west-1.elasticbeanstalk.com/';
+// const filterListingsPort = 3004;
+const bookingUrl = 'http://booking-service-logan.us-west-1.elasticbeanstalk.com/';
+// const bookingPort = 3002;
+
 const app = express();
 
 // use morgan to log incoming reuests
@@ -37,73 +49,74 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+
 // handle /titlegallerycomponent routes
 app.use('/titlegallerycomponent', async (req, res) => {
-  const redirectUrl = new url.URL(req.url, 'http://localhost/');
-  redirectUrl.port = 3005;
+  const redirectUrl = new url.URL(req.url, titleGalleryUrl);
+  // redirectUrl.port = titleGalleryPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /headerphotos routes
 app.use('/headerphotos', (req, res) => {
-  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
-  redirectUrl.port = 3005;
+  const redirectUrl = new url.URL(req.originalUrl, titleGalleryUrl);
+  // redirectUrl.port = titleGalleryPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /listingdescriptioncomponent routes
 app.use('/listingdescriptioncomponent', async (req, res) => {
-  const redirectUrl = new url.URL(req.url, 'http://localhost/');
-  redirectUrl.port = 3001;
+  const redirectUrl = new url.URL(req.url, listingDescriptionUrl);
+  // redirectUrl.port = listingDescriptionPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /rooms routes
 app.use('/rooms', (req, res) => {
-  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
-  redirectUrl.port = 3001;
+  const redirectUrl = new url.URL(req.originalUrl, listingDescriptionUrl);
+  // redirectUrl.port = listingDescriptionPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /reviewcomponent routes
 app.use('/reviewcomponent', async (req, res) => {
-  const redirectUrl = new url.URL(req.url, 'http://localhost/');
-  redirectUrl.port = 3003;
+  const redirectUrl = new url.URL(req.url, reviewsUrl);
+  // redirectUrl.port = reviewsPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /reviews routes
 app.use('/reviews', (req, res) => {
-  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
-  redirectUrl.port = 3003;
+  const redirectUrl = new url.URL(req.originalUrl, reviewsUrl);
+  // redirectUrl.port = reviewsPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /filterlistingscomponent routes
 app.use('/filterlistingscomponent', async (req, res) => {
-  const redirectUrl = new url.URL(req.url, 'http://localhost/');
-  redirectUrl.port = 3004;
+  const redirectUrl = new url.URL(req.url, filterListingsUrl);
+  // redirectUrl.port = filterListingsPort;
   res.redirect(307, redirectUrl);
 });
 
 // handle /filterlistings routes
 app.use('/filterlistings', (req, res) => {
-  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
-  redirectUrl.port = 3004;
+  const redirectUrl = new url.URL(req.originalUrl, filterListingsUrl);
+  // redirectUrl.port = filterListingsPort;
   res.redirect(307, redirectUrl);
 });
 
-// handle /filterlistingscomponent routes
+// handle /bookingservicecomponent routes
 app.use('/bookingservicecomponent', async (req, res) => {
-  const redirectUrl = new url.URL(req.url, 'http://localhost/');
-  redirectUrl.port = 3002;
+  const redirectUrl = new url.URL(req.url, bookingUrl);
+  // redirectUrl.port = bookingPort;
   res.redirect(307, redirectUrl);
 });
 
-// handle /filterlistings routes
+// handle /booking routes
 app.use('/booking', (req, res) => {
-  const redirectUrl = new url.URL(req.originalUrl, 'http://localhost/');
-  redirectUrl.port = 3002;
+  const redirectUrl = new url.URL(req.originalUrl, bookingUrl);
+  // redirectUrl.port = bookingPort;
   res.redirect(307, redirectUrl);
 });
 
